@@ -65,7 +65,7 @@
 	<![endif]-->
 
 	</head>
-	<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<body data-spy="scroll" data-target=".fh5co-nav" data-offset="50">
 		
 	<div class="fh5co-loader"></div>
 	
@@ -651,11 +651,32 @@
         enableUtc: false
     });
 
+    // smooth scrolling
     $(function () {
 	  $(document).scroll(function () {
 	    var $nav = $(".fh5co-nav");
 	    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
 	  });
+	});
+
+	$(".fh5co-nav ul li a[href^='#']").on('click', function(e) {
+
+	   // prevent default anchor click behavior
+	   e.preventDefault();
+
+	   // store hash
+	   var hash = this.hash;
+
+	   // animate
+	   $('html, body').animate({
+	       scrollTop: $(hash).offset().top
+	     }, 800, function(){
+
+	       // when done, add hash to url
+	       // (default click behaviour)
+	       window.location.hash = hash;
+	     });
+
 	});
 </script>
 
