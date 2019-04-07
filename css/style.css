@@ -327,6 +327,7 @@ h1, h2, h3, h4, h5, h6, figure {
 @media screen and (max-width: 768px) {
   .fh5co-cover {
     height: 600px;
+    background-position: 55% 0%;  
   }
 }
 .fh5co-cover .display-t,
@@ -470,8 +471,8 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
 }
 .timeline:before {
-  top: 0;
-  bottom: 0;
+  top: 2%;
+  bottom: 15%;
   position: absolute;
   content: " ";
   width: 1px;
@@ -854,12 +855,15 @@ form label {
   font-size: 100px;
   line-height: 1.5;
   font-family: "Sacramento", Arial, serif;
+  margin-top: -45%;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header .display-tc h1,
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
     font-size: 40px;
+    margin-top: 0px;
+    vertical-align: middle;
   }
 }
 @media screen and (max-width: 480px) {
@@ -867,6 +871,8 @@ form label {
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
     font-size: 30px;
+    margin-top: 0px;
+    vertical-align: middle;
   }
 }
 #fh5co-header .display-tc h2,
@@ -1634,7 +1640,7 @@ form label {
 }
 
 .fh5co-nav-toggle {
-  position: absolute;
+  position: fixed;
   right: 0px;
   top: 10px;
   z-index: 21;
