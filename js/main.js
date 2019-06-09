@@ -278,6 +278,22 @@
 		$(window).stellar();
 	};
 
+	var rsvpSubmission = function() {
+		const scriptURL ="https://script.google.com/macros/s/AKfycby5_pb1AcpgiIOaT2W_7jvsORvNFTpUDbE9lwCxa3TbCUJBY_I/exec"
+		$('#submit-rsvp').on('click', function(event){
+	  	$.ajax({
+		  type: "POST",
+		  url: scriptURL,
+		  data: $("#rsvp-submit-form").serialize(),
+		  success: function(data) {
+		  	$("#rsvp-modal-success").show()
+		  },
+   		  dataType: 'json',
+		});
+		event.preventDefault()
+	  });
+	}
+
 	
 	$(function(){
 		mobileMenuOutsideClick();
@@ -293,6 +309,7 @@
 		loaderPage();
 		counter();
 		counterWayPoint();
+		rsvpSubmission();
 	});
 
 

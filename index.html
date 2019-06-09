@@ -74,7 +74,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo" class="text-center"><a href="index.html">Wedding<strong>.</strong></a></div>
+					<div id="fh5co-logo" class="text-center"><a href="index.html">#WILmarryKEI</a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
@@ -535,36 +535,29 @@
 					<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
 				</div>
 				<div class="col-md-6 animate-box">
-					<form action="#">
+					<form id="rsvp-submit-form">
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="fname">Full Name</label>
-								<input type="text" id="fname" class="form-control" placeholder="Your fullname" required>
+								<input type="text" name="fname" class="form-control" placeholder="Your fullname" required>
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="email">Email</label>
-								<input type="email" id="email" class="form-control" placeholder="Your email address">
+								<input type="email" name="email" class="form-control" placeholder="Your email address">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
-								<label for="npeople">People Coming</label>
-								<input type="number" min="1" max="10" value="1" id="npeople" class="form-control">
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<div class="col-md-12">
-								<label for="address">Address</label>
-								<textarea name="address" id="address" cols="30" rows="10" class="form-control" placeholder="Give us your address if you want physical invitation"></textarea>
+								<label for="npeople">People Coming (including you)</label>
+								<input type="number" min="1" max="10" value="1" name="npeople" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="RSVP" class="btn btn-primary">
+							<input id="submit-rsvp" type="submit" value="RSVP" class="btn btn-primary">
 						</div>
 
 					</form>		
@@ -574,6 +567,24 @@
 			
 		</div>
 	</div>
+
+	<div id="rsvp-modal-success" class="modal fade">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box">
+						<i class="material-icons">&#xE876;</i>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body text-center">
+					<h4>Thank You for your RSVP</h4>	
+					<p>We will send your invitation to email when it's ready!</p>
+					<button class="btn btn-success" data-dismiss="modal"><span>Close</span> <i class="material-icons">&#xE5C8;</i></button>
+				</div>
+			</div>
+		</div>
+	</div>     
 
 
 	<!-- <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
