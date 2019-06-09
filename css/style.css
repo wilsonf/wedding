@@ -19,6 +19,7 @@ body {
   background: #fff;
 }
 
+
 #page {
   position: relative;
   overflow-x: hidden;
@@ -94,13 +95,17 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index: 1001;
 }
 @media screen and (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   .fh5co-nav {
     padding: 20px 0;
     position: fixed;
   }
-  .fh5co-nav.scrolled {
-    background-color: rgb(249, 162, 200,0.8) !important;
-    transition: background-color 200ms linear;
+
+  .fh5co-nav {
+    display: none;
   }
 }
 .fh5co-nav.scrolled {
@@ -1438,7 +1443,7 @@ form label {
 }
 
 #fh5co-offcanvas {
-  position: absolute;
+  position: fixed;
   z-index: 1901;
   width: 270px;
   background: black;
@@ -1595,10 +1600,16 @@ form label {
   transition: all .2s ease-out;
 }
 .fh5co-nav-toggle.fh5co-nav-white > i {
-  color: #fff;
-  background: #fff;
+  color: #000;
+  background: #000;
 }
 .fh5co-nav-toggle.fh5co-nav-white > i::before, .fh5co-nav-toggle.fh5co-nav-white > i::after {
+  background: #000;
+}
+.active.fh5co-nav-toggle.fh5co-nav-white > i {
+  background: #000;
+}
+.active.fh5co-nav-toggle.fh5co-nav-white > i::before, .active.fh5co-nav-toggle.fh5co-nav-white > i::after {
   background: #fff;
 }
 

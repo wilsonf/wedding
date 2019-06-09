@@ -8,14 +8,25 @@
 	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
 	    if (!container.is(e.target) && container.has(e.target).length === 0) {
 
-	    	if ( $('body').hasClass('offcanvas') ) {
+	    	if ( $('#page').hasClass('offcanvas') ) {
 
-    			$('body').removeClass('offcanvas');
+    			$('#page').removeClass('offcanvas');
     			$('.js-fh5co-nav-toggle').removeClass('active');
 	    	}
 	    }
 		});
 
+		$(document).scroll(function (e) {
+	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
+	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+
+	    	if ( $('#page').hasClass('offcanvas') ) {
+
+    			$('#page').removeClass('offcanvas');
+    			$('.js-fh5co-nav-toggle').removeClass('active');
+	    	}
+	    }
+		});
 	};
 
 
@@ -31,6 +42,7 @@
 		$('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
 		$('#fh5co-offcanvas')
 			.find('li')
+			.addClass('js-fh5co-nav-jump')
 			.removeClass('has-dropdown');
 
 		// Hover dropdown menu on mobile
@@ -68,11 +80,10 @@
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
 			var $this = $(this);
 
-
-			if ( $('body').hasClass('overflow offcanvas') ) {
-				$('body').removeClass('overflow offcanvas');
+			if ( $('#page').hasClass('offcanvas') ) {
+				$('#page').removeClass('offcanvas');
 			} else {
-				$('body').addClass('overflow offcanvas');
+				$('#page').addClass('offcanvas');
 			}
 			$this.toggleClass('active');
 			event.preventDefault();
@@ -80,7 +91,60 @@
 		});
 	};
 
+	var smoothScrolling = function() {
+		// smooth scrolling
+        $(function () {
+	      $(document).scroll(function () {
+	        var $nav = $(".fh5co-nav");
+	        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+	      });
+	    });
+    
+    	$(".fh5co-nav ul li a[href^='#']").on('click', function(e) {
+	   		// prevent default anchor click behavior
+	   		e.preventDefault();
+		
+	   		// store hash
+	   		var hash = this.hash;
 
+	   		// animate
+	   		$('html, body').animate({
+	   		    scrollTop: $(hash).offset().top
+	   		  }, 800, function(){
+
+	   		    // when done, add hash to url
+	   		    // (default click behaviour)
+	   		    window.location.hash = hash;
+		     });
+	    });
+	}
+
+	var jumpMenu = function() {
+
+		$('body').on('click', '.js-fh5co-nav-jump', function(event){
+			var $this = $(this);
+
+
+		if ( $('body').hasClass('overflow offcanvas') ) {
+			$('body').removeClass('overflow offcanvas');
+		}
+		$this.toggleClass('active');
+		$('.js-fh5co-nav-toggle').toggleClass('active')
+
+		//    // store hash
+		//    var hash = $this.get('a').hash;
+
+		//    // animate
+		//    $('html, body').animate({
+		//        scrollTop: $(hash).offset().top
+		//      }, 800, function(){
+
+		//        // when done, add hash to url
+		//        // (default click behaviour)
+		//        window.location.hash = hash;
+		//      });
+		});
+	};
 
 	var contentWayPoint = function() {
 		var i = 0;
@@ -219,7 +283,9 @@
 		mobileMenuOutsideClick();
 		parallax();
 		offcanvasMenu();
+		smoothScrolling();
 		burgerMenu();
+		jumpMenu();
 		contentWayPoint();
 		dropdown();
 		testimonialCarousel();
