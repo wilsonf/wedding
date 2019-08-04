@@ -1011,6 +1011,10 @@ form label {
   /* words */
 }
 
+.gform {
+  height: 750px
+}
+
 #fh5co-testimonial,
 #fh5co-services,
 #fh5co-started,
@@ -1034,6 +1038,10 @@ form label {
   #fh5co-gallery,
   .fh5co-section {
     padding: 3em 0;
+  }
+
+  .gform {
+    height: 870px
   }
 }
 
