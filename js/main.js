@@ -285,10 +285,11 @@
 		  type: "POST",
 		  url: scriptURL,
 		  data: $("#rsvp-submit-form").serialize(),
+		  dataType: "jsonp",
 		  success: function(data) {
 		  	$("#rsvp-modal-success").show()
 		  },
-   		  dataType: 'json',
+		  error: function(error) {console.log(error)}
 		});
 		event.preventDefault()
 	  });
