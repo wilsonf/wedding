@@ -372,6 +372,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-event {
   height: 850px;
   float: left;
+  background-image:url(../images/img_bg_5.jpg);
 }
 #fh5co-counter .display-t,
 #fh5co-counter .display-tc,
@@ -400,7 +401,7 @@ h1, h2, h3, h4, h5, h6, figure {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter,
@@ -408,6 +409,7 @@ h1, h2, h3, h4, h5, h6, figure {
     height: inherit;
     padding: 7em 0;
     background-position: 40% 0%;  
+    background-image:url(../images/img_bg_5_blur.jpg);
   }
   #fh5co-counter .display-t,
   #fh5co-counter .display-tc,
